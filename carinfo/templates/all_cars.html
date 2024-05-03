@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block all_cars %}
+
+<section id="featured-cars" class="featured-cars">
+    <div class="container">
+        <div class="section-header">
+            <p>checkout <span>the</span>All cars</p>
+            <h2>All cars</h2>
+        </div><!--/.section-header-->
+        <div class="featured-cars-content">
+            <div class="row">
+                {% for car in all_cars %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="single-featured-cars">
+                        <div class="featured-img-box">
+                            <div class="featured-cars-img">
+                                <img src="{{car.image.url}}" alt="cars">
+                            </div>
+                            <div class="featured-model-info">
+                                <p>
+                                    {{car.created_date}}
+                                    <span class="featured-mi-span">{{car.title}}</span> 
+                                    <span class="featured-hp-span">{{car.price_car}}</span>
+                                     {{car.engine}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="featured-cars-txt">
+                            <h2><a href="{{ car.get_absolute_url }}">{{car.carbrand.title}}</a></h2>
+                            <p>
+                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div><!--/.container-->
+
+</section><!--/.featured-cars-->
+<!--featured-cars end -->
+
+
+
+
+{% endblock all_cars %}

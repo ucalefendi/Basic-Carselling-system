@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block brand %}
+
+		<!--brand strat -->
+		<section id="brand"  class="brand">
+			<div class="container">
+				<div class="brand-area">
+					<div class="owl-carousel owl-theme brand-item">
+						{% for car in cars %}
+							<div class="item">
+								<a href="{{ car.get_absolute_url }}">
+									<img src="{{ car.image.url }}" alt="brand-image" />
+								</a>
+							</div><!--/.item-->
+						{% endfor %}
+					</div><!--/.owl-carousel-->
+				</div><!--/.clients-area-->
+
+			</div><!--/.container-->
+
+		</section><!--/brand-->	
+		<!--brand end -->
+
+{% endblock brand %}
